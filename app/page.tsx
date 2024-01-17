@@ -1,7 +1,7 @@
-import { fetchCars } from "@utils";
-import { HomeProps } from "@types";
-import { fuels, yearsOfProduction } from "@constants";
-import { CarCard, ShowMore, SearchBar, CustomFilter, Hero } from "@components";
+import { fetchCars } from "../utils";
+import { HomeProps } from "../types";
+import { fuels, yearsOfProduction } from "../constants";
+import { CarCard, ShowMore, SearchBar, CustomFilter, Hero } from "../components";
 
 export default async function Home({ searchParams }: HomeProps) {
   const allCars = await fetchCars({
@@ -37,7 +37,7 @@ export default async function Home({ searchParams }: HomeProps) {
           <section>
             <div className='home__cars-wrapper'>
               {allCars?.map((car) => (
-                <CarCard car={car} />
+                <CarCard car={car} key={id} />
               ))}
             </div>
 
